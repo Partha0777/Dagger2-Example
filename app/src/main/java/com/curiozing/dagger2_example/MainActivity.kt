@@ -11,11 +11,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.curiozing.dagger2_example.ui.theme.Dagger2ExampleTheme
+import com.curiozing.dagger2_example.ui.theme.data.HomeRepository
+import com.curiozing.dagger2_example.ui.theme.di.component.DaggerHomeComponent
+import com.curiozing.dagger2_example.ui.theme.di.component.HomeComponent
+import javax.inject.Inject
 
-class MainActivity : ComponentActivity() {
+class MainActivity : ComponentActivity(){
+
+    @Inject
+    lateinit var homeRepository: HomeRepository
     override fun onCreate(savedInstanceState: Bundle?) {
+        val homeComponent = DaggerHomeComponent.create()
+        homeComponent.inject(this)
         super.onCreate(savedInstanceState)
-
+        homeRepository.apiCall()
         setContent {
             Dagger2ExampleTheme {
                 // A surface container using the 'background' color from the theme
