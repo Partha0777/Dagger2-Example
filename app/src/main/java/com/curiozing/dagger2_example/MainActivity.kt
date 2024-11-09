@@ -13,7 +13,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.curiozing.dagger2_example.ui.theme.Dagger2ExampleTheme
 import com.curiozing.dagger2_example.ui.theme.data.HomeRepository
 import com.curiozing.dagger2_example.ui.theme.di.component.DaggerHomeComponent
-import com.curiozing.dagger2_example.ui.theme.di.component.HomeComponent
 import javax.inject.Inject
 
 class MainActivity : ComponentActivity(){
